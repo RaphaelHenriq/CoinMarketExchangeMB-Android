@@ -4,7 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.coinmarketexchangemb_android.features.exchanges_list.presentation.ExchangesListScreen
+import androidx.navigation.compose.rememberNavController
+import com.example.coinmarketexchangemb_android.navigation.MainNavigation
 import com.example.coinmarketexchangemb_android.ui.theme.CoinMarketExchangeMBAndroidTheme
 
 class MainActivity : ComponentActivity() {
@@ -13,7 +14,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CoinMarketExchangeMBAndroidTheme {
-                ExchangesListScreen()
+                val navController = rememberNavController()
+                MainNavigation(navController = navController)
             }
         }
     }
