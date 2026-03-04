@@ -31,25 +31,26 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.coinmarketexchangemb_android.R
-import com.example.coinmarketexchangemb_android.features.exchanges_list.data.model.Exchange
+import com.example.coinmarketexchangemb_android.features.exchanges_list.data.Exchange
+import com.example.coinmarketexchangemb_android.navigation.ExchangeDetailsRoute
 import com.example.coinmarketexchangemb_android.utils.toCurrency
 import com.example.coinmarketexchangemb_android.utils.toFormattedDate
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ExchangesListScreen(
-    viewModel: ExchangesListViewModel = viewModel()
+    navController: NavHostController,
+    viewModel: ExchangesListViewModel
 ) {
     val state = viewModel.uiState
 
@@ -73,7 +74,7 @@ fun ExchangesListScreen(
                     CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
                 }
                 is ExchangesListState.Success -> {
-                    ExchangesListContent(exchanges = state.list)
+                    ExchangesListContent(exchanges = state.list, navController)
                 }
                 is ExchangesListState.Error -> {
                     ErrorAlertDialog(
@@ -87,14 +88,17 @@ fun ExchangesListScreen(
 }
 
 @Composable
-fun ExchangesListContent(exchanges: List<Exchange>) {
+fun ExchangesListContent(
+    exchanges: List<Exchange>,
+    navController: NavHostController
+) {
     LazyColumn(
         modifier = Modifier.fillMaxSize(),
         contentPadding = PaddingValues(bottom = 16.dp)
     ) {
         items(exchanges) { exchange ->
             ExchangesListItem(exchange = exchange, onClick = { id ->
-                println("Cliquei na exchange: $id")
+                navController.navigate(ExchangeDetailsRoute(id = id))
             })
 
             HorizontalDivider(
