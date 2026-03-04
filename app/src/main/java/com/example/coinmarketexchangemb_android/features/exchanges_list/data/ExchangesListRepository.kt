@@ -1,4 +1,4 @@
-package com.example.coinmarketexchangemb_android.features.exchanges_list.data.repository
+package com.example.coinmarketexchangemb_android.features.exchanges_list.data
 
 import com.example.coinmarketexchangemb_android.network.RetrofitClient
 

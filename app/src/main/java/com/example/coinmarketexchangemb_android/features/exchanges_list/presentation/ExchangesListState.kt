@@ -1,6 +1,6 @@
 package com.example.coinmarketexchangemb_android.features.exchanges_list.presentation
 
-import com.example.coinmarketexchangemb_android.features.exchanges_list.data.model.Exchange
+import com.example.coinmarketexchangemb_android.features.exchanges_list.data.Exchange
 import com.example.coinmarketexchangemb_android.utils.Text
 sealed class ExchangesListState {
     object Loading : ExchangesListState()

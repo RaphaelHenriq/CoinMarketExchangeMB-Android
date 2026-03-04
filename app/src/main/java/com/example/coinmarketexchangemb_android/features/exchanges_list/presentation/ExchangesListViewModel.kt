@@ -6,8 +6,8 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.coinmarketexchangemb_android.R
-import com.example.coinmarketexchangemb_android.features.exchanges_list.data.model.Exchange
-import com.example.coinmarketexchangemb_android.features.exchanges_list.data.repository.ExchangesListRepository
+import com.example.coinmarketexchangemb_android.features.exchanges_list.data.Exchange
+import com.example.coinmarketexchangemb_android.features.exchanges_list.data.ExchangesListRepository
 import com.example.coinmarketexchangemb_android.utils.Text
 import kotlinx.coroutines.launch
 

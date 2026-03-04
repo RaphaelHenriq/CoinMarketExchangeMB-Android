@@ -1,4 +1,4 @@
-package com.example.coinmarketexchangemb_android.features.exchanges_list.data.model
+package com.example.coinmarketexchangemb_android.features.exchanges_list.data
 
 import com.google.gson.annotations.SerializedName
 
