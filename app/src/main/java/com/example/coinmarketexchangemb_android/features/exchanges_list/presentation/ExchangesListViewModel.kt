@@ -10,6 +10,7 @@ import com.example.coinmarketexchangemb_android.features.exchanges_list.data.Exc
 import com.example.coinmarketexchangemb_android.features.exchanges_list.data.ExchangesListRepository
 import com.example.coinmarketexchangemb_android.utils.Text
 import kotlinx.coroutines.launch
+import kotlin.coroutines.cancellation.CancellationException
 
 class ExchangesListViewModel: ViewModel() {
 
@@ -24,8 +25,9 @@ class ExchangesListViewModel: ViewModel() {
         uiState = ExchangesListState.Loading
 
         viewModelScope.launch {
-            try {
-                val response = repository.fetchExchangesList()
+            runCatching {
+                repository.fetchExchangesList()
+            }.onSuccess { response ->
                 if (response.isSuccessful) {
                     val exchanges = response.body()?.data
                     when {
@@ -41,8 +43,9 @@ class ExchangesListViewModel: ViewModel() {
                         )
                     )
                 }
+            }.onFailure { e ->
+                if (e is CancellationException) throw e
 
-            } catch (e: Exception) {
                 val errorMessage = e.localizedMessage
                 val errorText = if (!errorMessage.isNullOrBlank()) {
                     Text.DynamicString(errorMessage)

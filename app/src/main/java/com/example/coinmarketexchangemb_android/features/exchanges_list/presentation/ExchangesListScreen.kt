@@ -33,6 +33,7 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -179,7 +180,7 @@ fun ExchangesListItem(
 @Composable
 fun ErrorAlertDialog(
     errorMessage: String,
-    onRetry: () -> Unit
+    onRetry: (() -> Unit)? = null
 ) {
     AlertDialog(
         onDismissRequest = { },
@@ -203,11 +204,13 @@ fun ErrorAlertDialog(
                     .padding(bottom = 16.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Button(
-                    onClick = onRetry,
-                    modifier = Modifier.fillMaxWidth(0.7f)
-                ) {
-                    Text(stringResource(id = R.string.error_button_retry))
+                onRetry?.let {
+                    Button(
+                        onClick = it,
+                        modifier = Modifier.fillMaxWidth(0.7f)
+                    ) {
+                        Text(stringResource(id = R.string.error_button_retry))
+                    }
                 }
             }
         }

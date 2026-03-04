@@ -6,5 +6,7 @@ import retrofit2.Response
 class ExchangeDetailsRepository {
     private val api = RetrofitClient.service
 
-    suspend fun getExchangeMetadata(id: String): Response<ExchangeDetailsResponse> = api.getExchangeDetails(id)
+    suspend fun getExchangeDetails(id: String): Response<ExchangeDetailsResponse> = api.getExchangeDetails(id)
+
+    suspend fun getExchangeDetailsAssets(id: String): Response<ExchangeDetailsAssetsResponse> = api.getExchangeDetailsAssets(id)
 }

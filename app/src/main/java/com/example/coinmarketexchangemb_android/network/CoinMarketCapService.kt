@@ -1,5 +1,6 @@
 package com.example.coinmarketexchangemb_android.network
 
+import com.example.coinmarketexchangemb_android.features.exchange_details.data.ExchangeDetailsAssetsResponse
 import com.example.coinmarketexchangemb_android.features.exchange_details.data.ExchangeDetailsResponse
 import com.example.coinmarketexchangemb_android.features.exchanges_list.data.ExchangesListResponse
 import retrofit2.Response
@@ -16,4 +17,9 @@ interface CoinMarketCapService {
     suspend fun getExchangeDetails(
         @Query("id") id: String
     ): Response<ExchangeDetailsResponse>
+
+    @GET("v1/exchange/assets")
+    suspend fun getExchangeDetailsAssets(
+        @Query("id") id: String
+    ): Response<ExchangeDetailsAssetsResponse>
 }
