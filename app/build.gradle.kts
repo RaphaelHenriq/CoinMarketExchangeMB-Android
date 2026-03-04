@@ -20,13 +20,9 @@ android {
 
     buildTypes {
         debug {
+            buildConfigField("String", "BASE_URL", "\"https://sandbox-api.coinmarketcap.com/\"")
             buildConfigField("String", "CMC_API_KEY", "\"b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c\"")
             isMinifyEnabled = false
-        }
-        release {
-            buildConfigField("String", "CMC_API_KEY", "\"273e3dacb8554250aeb57ebbdb4a5a13\"")
-            isMinifyEnabled = true
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
     compileOptions {
