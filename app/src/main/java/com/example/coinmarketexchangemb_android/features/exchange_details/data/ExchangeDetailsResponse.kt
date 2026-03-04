@@ -14,15 +14,9 @@ data class ExchangeDetails(
     val urls: ExchangeUrls?,
     @SerializedName("maker_fee") val makerFee: Double?,
     @SerializedName("taker_fee") val takerFee: Double?,
-    @SerializedName("date_launched") val dateLaunched: String?,
-    val assets: List<ExchangeAsset>? = emptyList()
+    @SerializedName("date_launched") val dateLaunched: String?
 )
 
 data class ExchangeUrls(
     val website: List<String>?
-)
-
-data class ExchangeAsset(
-    val name: String,
-    @SerializedName("price_usd") val priceUsd: Double
 )
