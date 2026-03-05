@@ -12,9 +12,9 @@ import com.example.coinmarketexchangemb_android.utils.Text
 import kotlinx.coroutines.launch
 import kotlin.coroutines.cancellation.CancellationException
 
-class ExchangesListViewModel: ViewModel() {
-
-    private val repository = ExchangesListRepository()
+class ExchangesListViewModel(
+    private val repository: ExchangesListRepository = ExchangesListRepository()
+): ViewModel() {
 
     var uiState by mutableStateOf<ExchangesListState>(ExchangesListState.Loading)
         private set
