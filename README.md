@@ -35,12 +35,24 @@ ExchangesList e ExchangeDetails: features de tela, cada uma com sua implementaç
 
 - Testes Unitários: Implementados com JUnit 5 e MockK para garantir a lógica de Network, ViewModels e Repositórios.
 
+
 ## 🔮 Próximos passos
 
 - Modularização: Divisão do projeto em módulos Gradle (:core, :network, :features).
 - Offline Mode: Cache local utilizando Room Database.
 - CI/CD: Configuração de GitHub Actions para rodar Linter (Ktlint) e testes automaticamente.
 
+
+## ⚙️ Configurações do Ambiente e Setup
+
+Para compilar e rodar este projeto, certifique-se de que seu ambiente atende aos seguintes requisitos:
+- Android Studio: Jellyfish | 2023.3.1 ou superior.
+- JDK / JVM: Java 17 (Recomendado para compatibilidade com o Gradle 8+).
+- Gradle: 8.4
+- Min SDK: 24 (Android 7.0)
+- Target SDK: 34 (Android 14)
+- Linguagem: Kotlin 1.9.20+
+
 ## Considerações
 
-- Este projeto usou a chave de API pública do ambiente de SandBox da CoinMarketCap, onde todos os dados estão mockados.
+- Este projeto usou a chave de API pública do ambiente de SandBox da CoinMarketCap, ou seja, todos os dados estão mockados.
