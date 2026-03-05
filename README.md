@@ -18,9 +18,9 @@ O projeto segue os princípios da Clean Architecture e é estruturado por camada
 - utils/: Helpers para formatação de moeda, datas e tratamento de strings.
 
 **📂 Features:** pasta com as features do projeto, independentes, como se fossem módulos
-- **ExchangesList e ExchangeDetails:** features de tela, cada uma com sua implementação diferente, explicado logo abaixo
+
+ExchangesList e ExchangeDetails: features de tela, cada uma com sua implementação diferente, explicado logo abaixo
 - presentation/: ViewModels e UI em Jetpack Compose.
-- domain/: Modelos de negócio e Use Cases.
 - data/: Implementação de Repositórios e Data Sources (Retrofit Services).
 
 ### Tecnologias e padrões
@@ -31,17 +31,15 @@ O projeto segue os princípios da Clean Architecture e é estruturado por camada
 - Network: Retrofit 2 com Kotlinx Serialization para o parsing de JSON.
 - Imagens: Coil para carregamento assíncrono e cache de logos.
 
-
 ### 🧪 Testes unitário
 
 - Testes Unitários: Implementados com JUnit 5 e MockK para garantir a lógica de Network, ViewModels e Repositórios.
 
 ## 🔮 Próximos passos
 
-- Modularização: Divisão do projeto em módulos Gradle (:core, :network, :feature:list).
+- Modularização: Divisão do projeto em módulos Gradle (:core, :network, :features).
 - Offline Mode: Cache local utilizando Room Database.
 - CI/CD: Configuração de GitHub Actions para rodar Linter (Ktlint) e testes automaticamente.
-- Segurança: Ofuscação de código com R8/ProGuard e armazenamento de chaves via local.properties.
 
 ## Considerações
 
